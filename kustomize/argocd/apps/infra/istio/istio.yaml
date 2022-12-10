@@ -9,6 +9,7 @@ metadata:
 spec:
   destination:
     namespace: istio-system
+    name: in-cluster
   project: infra
   source:
     chart: istio/base
