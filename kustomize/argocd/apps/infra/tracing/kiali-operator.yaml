@@ -14,7 +14,7 @@ spec:
   source:
     chart: kiali-operator
     repoURL: https://kiali.org/helm-charts
-    targetRevision: 1.30.0
+    targetRevision: 1.60.0
     helm:
       values: |
         cr:
