@@ -7,9 +7,6 @@ metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
-  clusterResourceWhitelist:
-    - group: '*'
-      kind: '*'
   destination:
     namespace: istio-system
     name: in-cluster
