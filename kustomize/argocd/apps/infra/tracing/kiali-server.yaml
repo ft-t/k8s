@@ -19,7 +19,6 @@ spec:
       values: |
         auth:
           strategy: anonymous
-          namespace: istio-system
         deployment:
           ingress:
             enabled: true
