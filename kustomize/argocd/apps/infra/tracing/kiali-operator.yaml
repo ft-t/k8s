@@ -21,6 +21,8 @@ spec:
           create: true
           namespace: istio-system
           spec:
+            auth:
+              strategy: anonymous
             deployment:
               ingress:
                 enabled: true
