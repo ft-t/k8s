@@ -20,9 +20,10 @@ spec:
         cr:
           create: true
           namespace: istio-system
-        deployment:
-          ingress:
-            enabled: true
+          spec:
+            deployment:
+              ingress:
+                enabled: true
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
