@@ -9,14 +9,11 @@ metadata:
 spec:
   destination:
     namespace: istio-system
-    name: istiod
   project: infra
   source:
     chart: istio/istiod
     repoURL: https://istio-release.storage.googleapis.com/charts
     targetRevision: 1.16.0
-    helm:
-      releaseName: istiod
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
