@@ -21,6 +21,12 @@ spec:
           create: true
           namespace: istio-system
           spec:
+            external_services:
+              prometheus:
+                url: "http://prometheus-server"
+              custom_dashboards:
+                prometheus:
+                  url: "http://prometheus-server"
             auth:
               strategy: anonymous
             deployment:

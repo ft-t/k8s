@@ -15,7 +15,14 @@ spec:
     chart: base
     repoURL: https://istio-release.storage.googleapis.com/charts
     targetRevision: 1.16.0
+    helm:
+      values: |
+        kiali:
+          enabled: true
+          prometheusAddr: "http://prometheus-server"
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
-    automated: {}
+    automated:
+      prune: true
+      selfHeal: true
