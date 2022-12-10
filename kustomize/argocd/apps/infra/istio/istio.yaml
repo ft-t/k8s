@@ -19,7 +19,7 @@ spec:
       values: |
         kiali:
           enabled: true
-          prometheusAddr: "http://prometheus-server"
+          prometheusAddr: "http://prometheus-server.prometheus.svc.cluster.local"
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
