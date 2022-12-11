@@ -36,4 +36,3 @@ Create chart name and version as used by the chart label.
     {{- .Values.virtualService.subdomain | default (include "helm-guestbook.name" .) }}.{{ .Values.virtualService.domain }}
 {{- end -}}
 {{- end -}}
-{{- end -}}
