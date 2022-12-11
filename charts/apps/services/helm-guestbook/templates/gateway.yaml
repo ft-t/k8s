@@ -6,7 +6,7 @@ metadata:
   name: {{ include "helm-guestbook.fullname" . }}
 spec:
   selector:
-    istio: ingressgateway
+    istio: istio-ingress
   servers:
     - port:
         number: 80
