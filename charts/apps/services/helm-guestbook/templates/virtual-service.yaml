@@ -4,8 +4,6 @@ apiVersion: networking.istio.io/v1beta1
 kind: VirtualService
 metadata:
   name: {{ template "helm-guestbook.fullname" . }}
-  labels:
-{{- include "helm-guestbook.labels" . | nindent 4 }}
 spec:
   hosts:
     - "{{- template "helm-guestbook.ingress-host" . }}"
