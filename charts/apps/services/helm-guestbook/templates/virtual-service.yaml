@@ -1,0 +1,21 @@
+{{ if and (.Values.namespace) (.Values.virtualService) }}
+---
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: {{ template "helm-guestbook.fullname" . }}
+  labels:
+{{- include "helm-guestbook.labels" . | nindent 4 }}
+spec:
+  hosts:
+    - "{{- template "helm-guestbook.ingress-host" . }}"
+  gateways:
+    -  {{ template "helm-guestbook.fullname" . }}
+  http:
+    - name: "{{ template "helm-guestbook.name" . }}"
+      route:
+        - destination:
+            host: "{{ template "helm-guestbook.name" . }}.{{ .Values.namespace }}.svc.cluster.local"
+            port:
+              number: {{ .Values.service.port }}
+{{ end }}

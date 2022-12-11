@@ -1,0 +1,19 @@
+{{ if .Values.virtualService }}
+---
+apiVersion: networking.istio.io/v1beta1
+kind: Gateway
+metadata:
+  name: {{ include "helm-guestbook.fullname" . }}
+  labels:
+    {{- include "helm-guestbook.labels" . | nindent 4 }}
+spec:
+  selector:
+    istio: ingressgateway
+  servers:
+    - port:
+        number: 8080
+        name: http2
+        protocol: HTTP
+      hosts:
+        - "{{- template "helm-guestbook.ingress-host" . }}"
+{{ end }}
