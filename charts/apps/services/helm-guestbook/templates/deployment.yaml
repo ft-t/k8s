@@ -24,20 +24,20 @@ spec:
         - name: task-pv-storage
           persistentVolumeClaim:
             claimName: task-pv-claim2
-        - name: data
-          {{- if .Values.persistence.enabled}}
-          persistentVolumeClaim:
-            claimName: {{ template "helm-guestbook.fullname" . }}
-          {{- else }}
-          emptyDir: {}
-          {{- end }}
+{{/*        - name: data*/}}
+{{/*          {{- if .Values.persistence.enabled}}*/}}
+{{/*          persistentVolumeClaim:*/}}
+{{/*            claimName: {{ template "helm-guestbook.fullname" . }}*/}}
+{{/*          {{- else }}*/}}
+{{/*          emptyDir: {}*/}}
+{{/*          {{- end }}*/}}
       containers:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           volumeMounts:
-            - mountPath: /data
-              name: data
+{{/*            - mountPath: /data*/}}
+{{/*              name: data*/}}
             - mountPath: /local
               name: task-pv-storage
           ports:
