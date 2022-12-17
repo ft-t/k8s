@@ -9,6 +9,6 @@ spec:
   accessModes:
     - ReadWriteOnce
   claimRef:
-    name: foo-pvc
+    name: task-pv-claim
   hostPath:
     path: "/mnt/pvc/"
