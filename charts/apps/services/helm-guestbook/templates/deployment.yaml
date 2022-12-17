@@ -20,6 +20,13 @@ spec:
         app: {{ template "helm-guestbook.name" . }}
         release: {{ .Release.Name }}
     spec:
+      volumes:
+        - name: data
+          {{- if .Values.persistence.enabled}}
+          persistentVolumeClaim:
+            claimName: {{ template "helm-guestbook.fullname" . }}
+          {{- else }}
+          emptyDir: {}
       containers:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"

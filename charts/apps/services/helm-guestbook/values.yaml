@@ -17,6 +17,12 @@ namespace: default
 virtualService:
   domain: qqw.ovh
 
+persistence:
+  enabled: true
+  storageClass: longhorn
+  accessMode: ReadWriteOnce
+  size: 2Gi
+
 ingress:
   enabled: false
   annotations: {}
