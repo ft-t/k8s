@@ -59,6 +59,6 @@ affinity:
         preference:
           matchExpressions:
             - key: kubernetes.io/hostname
-              operator: in
+              operator: In
               values:
                 - rke0
