@@ -11,4 +11,4 @@ spec:
   claimRef:
     name: task-pv-claim
   hostPath:
-    path: "/mnt"
+    path: "/mnt/pvc/"
