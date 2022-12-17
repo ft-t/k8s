@@ -8,7 +8,5 @@ spec:
     storage: 3Gi
   accessModes:
     - ReadWriteOnce
-  claimRef:
-    name: task-pv-claim
   hostPath:
     path: "/mnt/pvc/"
