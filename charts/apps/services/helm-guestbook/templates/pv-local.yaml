@@ -8,6 +8,7 @@ spec:
   volumeMode: Filesystem
   claimRef:
     name: task-pv-claim2
+    namespace: {{ .Values.namespace }}
   accessModes:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Delete
