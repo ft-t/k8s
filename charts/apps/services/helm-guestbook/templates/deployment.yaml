@@ -21,6 +21,9 @@ spec:
         release: {{ .Release.Name }}
     spec:
       volumes:
+        - name: task-pv-storage
+          persistentVolumeClaim:
+            claimName: task-pv-claim
         - name: data
           {{- if .Values.persistence.enabled}}
           persistentVolumeClaim:
@@ -35,6 +38,8 @@ spec:
           volumeMounts:
             - mountPath: /data
               name: data
+            - mountPath: /local
+              name: task-pv-storage
           ports:
             - name: http
               containerPort: 80
