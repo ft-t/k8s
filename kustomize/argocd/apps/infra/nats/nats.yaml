@@ -28,6 +28,7 @@ spec:
             fileStorage:
               enabled: true
               size: 1Gi
+              volumeMode: Block
               storageClassName: local-storage-hdd
   syncPolicy:
     syncOptions:
