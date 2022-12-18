@@ -20,8 +20,8 @@ spec:
         serviceMonitor:
           enabled: true
         classes:
-          - name: local-storage
-            hostDir: /mnt/k8s
+          - name: local-storage-hdd
+            hostDir: /mnt/disks/hdd
             volumeMode: Filesystem
             storageClass: true
   syncPolicy:
