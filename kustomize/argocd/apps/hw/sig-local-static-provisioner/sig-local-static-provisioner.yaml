@@ -23,7 +23,7 @@ spec:
           - name: local-storage
             hostDir: /mnt/k8s
             volumeMode: Filesystem
-            storageClass: false
+            storageClass: true
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
