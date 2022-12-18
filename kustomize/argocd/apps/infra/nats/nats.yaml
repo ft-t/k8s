@@ -19,7 +19,7 @@ spec:
       values: |
         cluster:
           enabled: true
-          replicas: 10
+          replicas: 2
         natsbox:
           enabled: true
         nats:
@@ -28,7 +28,6 @@ spec:
             fileStorage:
               enabled: true
               size: 1Gi
-              volumeMode: Block
               storageClassName: local-storage-hdd
   syncPolicy:
     syncOptions:

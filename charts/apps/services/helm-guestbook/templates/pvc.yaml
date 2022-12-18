@@ -5,7 +5,6 @@ metadata:
   name: {{ template "helm-guestbook.fullname" . }}
 spec:
   storageClassName: {{ .Values.persistence.storageClass | quote }}
-  volumeMode: Block
   accessModes:
     - {{ .Values.persistence.accessMode | quote }}
   resources:
