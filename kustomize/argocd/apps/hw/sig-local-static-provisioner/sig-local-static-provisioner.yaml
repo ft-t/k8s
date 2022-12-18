@@ -13,7 +13,7 @@ spec:
   project: infra
   source:
     path: helm/provisioner
-    repoUrl: https://github.com/kubernetes-sigs/sig-storage-local-static-provisioner
+    repoURL: https://github.com/kubernetes-sigs/sig-storage-local-static-provisioner
     targetRevision: 419972c214d8c5b139c83f2ba2580c3e9536d68f
     helm:
       values: |
