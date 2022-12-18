@@ -19,7 +19,7 @@ virtualService:
 
 persistence:
   enabled: true
-  storageClass: longhorn
+  storageClass: local-storage-hdd
   accessMode: ReadWriteOnce
   size: 2Gi
 
