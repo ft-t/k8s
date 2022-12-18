@@ -1,25 +1,25 @@
-apiVersion: v1
-kind: PersistentVolume
-metadata:
-  name: example-pv2
-spec:
-  capacity:
-    storage: 3Gi
-  volumeMode: Filesystem
-  claimRef:
-    name: task-pv-claim2
-    namespace: {{ .Values.namespace }}
-  accessModes:
-    - ReadWriteOnce
-  persistentVolumeReclaimPolicy: Delete
-  storageClassName: local-storage
-  local:
-    path: /mnt/k8s/ssd1
-  nodeAffinity:
-    required:
-      nodeSelectorTerms:
-        - matchExpressions:
-            - key: kubernetes.io/hostname
-              operator: In
-              values:
-                - rke0
+{{/*apiVersion: v1*/}}
+{{/*kind: PersistentVolume*/}}
+{{/*metadata:*/}}
+{{/*  name: example-pv2*/}}
+{{/*spec:*/}}
+{{/*  capacity:*/}}
+{{/*    storage: 3Gi*/}}
+{{/*  volumeMode: Filesystem*/}}
+{{/*  claimRef:*/}}
+{{/*    name: task-pv-claim2*/}}
+{{/*    namespace: {{ .Values.namespace }}*/}}
+{{/*  accessModes:*/}}
+{{/*    - ReadWriteOnce*/}}
+{{/*  persistentVolumeReclaimPolicy: Delete*/}}
+{{/*  storageClassName: local-storage*/}}
+{{/*  local:*/}}
+{{/*    path: /mnt/k8s/ssd1*/}}
+{{/*  nodeAffinity:*/}}
+{{/*    required:*/}}
+{{/*      nodeSelectorTerms:*/}}
+{{/*        - matchExpressions:*/}}
+{{/*            - key: kubernetes.io/hostname*/}}
+{{/*              operator: In*/}}
+{{/*              values:*/}}
+{{/*                - rke0*/}}
