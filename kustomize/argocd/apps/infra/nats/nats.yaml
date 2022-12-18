@@ -28,7 +28,7 @@ spec:
             fileStorage:
               enabled: true
               size: 1Gi
-              storageClassName: local-storage
+              storageClassName: local-storage-hdd
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
