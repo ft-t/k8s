@@ -22,7 +22,7 @@ spec:
         classes:
           - name: local-storage-hdd
             hostDir: /mnt/disks/hdd
-            volumeMode: Filesystem
+            volumeMode: Block
             storageClass: true
   syncPolicy:
     syncOptions:
