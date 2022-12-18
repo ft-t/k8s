@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: example-pv
+  name: example-pv2
 spec:
   capacity:
     storage: 3Gi
@@ -14,7 +14,7 @@ spec:
   persistentVolumeReclaimPolicy: Delete
   storageClassName: local-storage
   local:
-    path: /mnt/disks/ssd1
+    path: /mnt/k8s/ssd1
   nodeAffinity:
     required:
       nodeSelectorTerms:
