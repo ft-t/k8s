@@ -21,7 +21,7 @@ persistence:
   enabled: true
   storageClass: local-storage-nvme
   accessMode: ReadWriteOnce
-  size: 13Gi
+  size: 2Gi
 
 ingress:
   enabled: false
