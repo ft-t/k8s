@@ -24,6 +24,10 @@ spec:
             hostDir: /mnt/disks/hdd
             volumeMode: Filesystem
             storageClass: true
+          - name: local-storage-nvme
+            hostDir: /mnt/disks/nvme
+            volumeMode: Filesystem
+            storageClass: true
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
