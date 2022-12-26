@@ -19,7 +19,7 @@ virtualService:
 
 persistence:
   enabled: true
-  storageClass: local-storage-hdd
+  storageClass: local-storage-nvme
   accessMode: ReadWriteOnce
   size: 2Gi
 
