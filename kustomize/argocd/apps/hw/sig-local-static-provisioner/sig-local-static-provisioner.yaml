@@ -10,7 +10,7 @@ spec:
   destination:
     namespace: sig-local-static-provisioner
     name: in-cluster
-  project: infra
+  project: default
   source:
     path: helm/provisioner
     repoURL: https://github.com/kubernetes-sigs/sig-storage-local-static-provisioner
