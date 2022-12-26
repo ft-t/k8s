@@ -1,17 +1,17 @@
-{{ if .Values.virtualService }}
----
-apiVersion: networking.istio.io/v1alpha3
-kind: Gateway
-metadata:
-  name: {{ include "helm-guestbook.fullname" . }}
-spec:
-  selector:
-    istio: ingress
-  servers:
-    - port:
-        number: 80
-        name: http2
-        protocol: HTTP
-      hosts:
-        - "{{- template "helm-guestbook.ingress-host" . }}"
-{{ end }}
+{{/*{{ if .Values.virtualService }}*/}}
+{{/*---*/}}
+{{/*apiVersion: networking.istio.io/v1alpha3*/}}
+{{/*kind: Gateway*/}}
+{{/*metadata:*/}}
+{{/*  name: {{ include "helm-guestbook.fullname" . }}*/}}
+{{/*spec:*/}}
+{{/*  selector:*/}}
+{{/*    istio: ingress*/}}
+{{/*  servers:*/}}
+{{/*    - port:*/}}
+{{/*        number: 80*/}}
+{{/*        name: http2*/}}
+{{/*        protocol: HTTP*/}}
+{{/*      hosts:*/}}
+{{/*        - "{{- template "helm-guestbook.ingress-host" . }}"*/}}
+{{/*{{ end }}*/}}
