@@ -12,7 +12,7 @@ spec:
     name: in-cluster
   project: default
   source:
-    chart: prometheus
+    chart: kube-prometheus-stack
     repoURL: https://prometheus-community.github.io/helm-charts
     targetRevision: 43.2.0
     helm:
