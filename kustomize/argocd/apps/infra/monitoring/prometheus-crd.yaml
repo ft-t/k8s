@@ -17,11 +17,10 @@ spec:
     targetRevision: kube-prometheus-stack-43.2.0
     directory:
       recurse: true
-    syncOptions:
-      - Replace=true
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
+      - ServerSideApply=true
     automated:
       prune: true
       selfHeal: true
