@@ -19,7 +19,6 @@ spec:
       values: |
         cr:
           create: true
-          namespace: istio-system
           spec:
             external_services:
               prometheus:
