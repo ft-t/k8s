@@ -8,7 +8,7 @@ metadata:
     - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
-    namespace: kiali-operator
+    namespace: istio-system
     name: in-cluster
   project: default
   source:
