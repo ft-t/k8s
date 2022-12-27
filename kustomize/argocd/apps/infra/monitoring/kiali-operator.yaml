@@ -8,7 +8,7 @@ metadata:
     - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
-    namespace: istio-system
+    namespace: kiali-operator
     name: in-cluster
   project: default
   source:
@@ -19,6 +19,7 @@ spec:
       values: |
         cr:
           create: true
+          namespace: istio-system
           spec:
             external_services:
               prometheus:
