@@ -10,7 +10,7 @@ spec:
   destination:
     namespace: istio-system
     name: in-cluster
-  project: infra
+  project: default
   source:
     chart: istiod
     repoURL: https://istio-release.storage.googleapis.com/charts
