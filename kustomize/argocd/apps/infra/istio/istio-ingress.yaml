@@ -1,23 +1,23 @@
-#---
-#apiVersion: argoproj.io/v1alpha1
-#kind: Application
-#metadata:
-#  name: istio-ingress
-#  namespace: argocd
-#  finalizers:
-#    - resources-finalizer.argocd.argoproj.io
-#spec:
-#  destination:
-#    namespace: istio-ingress
-#    name: in-cluster
-#  project: infra
-#  source:
-#    chart: gateway
-#    repoURL: https://istio-release.storage.googleapis.com/charts
-#    targetRevision: 1.16.0
-#  syncPolicy:
-#    syncOptions:
-#      - CreateNamespace=true
-#    automated:
-#      prune: true
-#      selfHeal: true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: istio-ingress
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: istio-ingress
+    name: in-cluster
+  project: default
+  source:
+    chart: gateway
+    repoURL: https://istio-release.storage.googleapis.com/charts
+    targetRevision: 1.16.0
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+    automated:
+      prune: true
+      selfHeal: true
