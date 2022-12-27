@@ -10,7 +10,7 @@ spec:
   destination:
     namespace: kiali-operator
     name: in-cluster
-  project: infra
+  project: default
   source:
     chart: kiali-operator
     repoURL: https://kiali.org/helm-charts
