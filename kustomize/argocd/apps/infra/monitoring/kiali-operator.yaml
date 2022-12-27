@@ -22,10 +22,10 @@ spec:
           spec:
             external_services:
               prometheus:
-                url: "http://prometheus-kube-prometheus-prometheus.prometheus.svc.cluster.local"
+                url: "http://prometheus-kube-prometheus-prometheus.prometheus.svc.cluster.local:9090"
               custom_dashboards:
                 prometheus:
-                  url: "http://prometheus-kube-prometheus-prometheus.prometheus.svc.cluster.local"
+                  url: "http://prometheus-kube-prometheus-prometheus.prometheus.svc.cluster.local:9090"
             auth:
               strategy: anonymous
             deployment:
