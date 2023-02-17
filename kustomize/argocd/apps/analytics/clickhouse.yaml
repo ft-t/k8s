@@ -23,7 +23,7 @@ spec:
         global:
           storageClass: local-storage-nvme
         shards: 1
-        replicaCount: 1
+        replicaCount: 2
         zookeeper:
           replicaCount: 1
         ingress:
