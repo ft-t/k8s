@@ -17,6 +17,9 @@ spec:
     targetRevision: 3.0.1
     helm:
       values: |
+        auth:
+          username: admin
+          password: password
         global:
           storageClass: local-storage-nvme
         shards: 1
