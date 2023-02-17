@@ -12,7 +12,7 @@ spec:
     name: in-cluster
   project: default
   source:
-    path: clickhouse
+    chart: clickhouse
     repoURL: https://charts.bitnami.com/bitnami
     targetRevision: 3.0.1
     helm:
