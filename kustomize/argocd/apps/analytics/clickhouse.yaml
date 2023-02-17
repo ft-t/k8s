@@ -21,6 +21,8 @@ spec:
           storageClass: local-storage-nvme
         shards: 1
         replicaCount: 1
+        zookeeper:
+          replicaCount: 1
         ingress:
           enabled: true
           hostname: clickhouse.local
