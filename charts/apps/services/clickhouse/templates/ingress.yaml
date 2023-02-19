@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ include "clickhouse.fullname" . }}
+spec:
+  rules:
+    - host: clickhouse.local
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: clickhouse-{{.Values.installationName}}
+                port:
+                  number: 8123

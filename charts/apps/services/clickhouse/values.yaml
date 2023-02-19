@@ -4,3 +4,4 @@
 storageClassName: local-storage-nvme
 shardsCount: 2
 replicaCount: 2
+installationName: simple-01
