@@ -7,6 +7,9 @@ spec:
     templates:
       dataVolumeClaimTemplate: data-volume-template
   configuration:
+    zookeeper:
+      nodes:
+        - host: zookeeper.zoo1ns
     clusters:
       - name: "default"
         layout:
