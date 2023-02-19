@@ -16,10 +16,9 @@ spec:
           shardsCount: {{.Values.shardsCount}}
           replicasCount: {{.Values.replicaCount}}
     users:
-      test/networks/ip: ::/0
-      test/password: test
-      test/profile: test
-      test/quota: default
+      user2/networks/ip: "::/0"
+      user2/password: qwerty
+      user2/profile: default
   templates:
     volumeClaimTemplates:
       - name: data-volume-template
