@@ -19,7 +19,7 @@ spec:
       values: |
         auth:
           username: default
-          password: 
+          password: ""
         global:
           storageClass: local-storage-nvme
         shards: 2
