@@ -12,28 +12,8 @@ spec:
     name: in-cluster
   project: default
   source:
-    chart: clickhouse
-    repoURL: https://charts.bitnami.com/bitnami
-    targetRevision: 3.0.1
-    helm:
-      values: |
-        auth:
-          username: default
-          password: ""
-        global:
-          storageClass: local-storage-nvme
-        shards: 2
-        replicaCount: 2
-        zookeeper:
-          replicaCount: 1
-        ingress:
-          enabled: true
-          hostname: clickhouse.local
-        persistence:
-          enabled: true
-        metrics:
-          serviceMonitor:
-            enabled: true
+    path: "charts/apps/services/clickhouse"
+    repoURL: https://github.com/ft-t/k8s
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
