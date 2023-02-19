@@ -1,3 +1,6 @@
 # Default values for clickhouse.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
+storageClassName: local-storage-nvme
+shardsCount: 2
+replicaCount: 2

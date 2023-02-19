@@ -3,6 +3,22 @@ kind: "ClickHouseInstallation"
 metadata:
   name: "simple-01"
 spec:
+  defaults:
+    templates:
+      dataVolumeClaimTemplate: data-volume-template
   configuration:
     clusters:
       - name: "default"
+        layout:
+          shardsCount: {{.Values.shardsCount}}
+          replicasCount: {{.Values.replicaCount}}
+  templates:
+    volumeClaimTemplates:
+      - name: data-volume-template
+        spec:
+          accessModes:
+            - ReadWriteOnce
+          storageClassName: {{.Values.storageClassName}}
+          resources:
+            requests:
+              storage: 5Gi
