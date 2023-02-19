@@ -18,8 +18,8 @@ spec:
     helm:
       values: |
         auth:
-          username: admin
-          password: password
+          username: default
+          password: 
         global:
           storageClass: local-storage-nvme
         shards: 2
