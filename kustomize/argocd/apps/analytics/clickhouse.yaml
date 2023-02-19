@@ -22,7 +22,7 @@ spec:
           password: password
         global:
           storageClass: local-storage-nvme
-        shards: 1
+        shards: 2
         replicaCount: 2
         zookeeper:
           replicaCount: 1
