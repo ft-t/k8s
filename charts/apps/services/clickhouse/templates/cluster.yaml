@@ -9,7 +9,7 @@ spec:
   configuration:
     zookeeper:
       nodes:
-        - host: zookeeper.zoo1ns
+        - host: zookeeper
     clusters:
       - name: "default"
         layout:
