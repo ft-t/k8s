@@ -27,6 +27,14 @@ spec:
                   resources:
                     requests:
                       storage: 50Gi
+        kubeScheduler:
+          enabled: false
+        kubelet:
+          enabled: false
+        kubeControllerManager:
+          enabled: false
+        kubeProxy:
+          enabled: false
         nodeExporter:
           enabled: true
         kubeStateMetrics:
@@ -36,8 +44,20 @@ spec:
           ingress:
             enabled: true
             hosts: ["grafana.qqw.ovh"]
+        defaultRules:
+          disabled:
+            KubeletDown: true
+          rules:
+            kubeSchedulerAlerting: false
+            kubeSchedulerRecording: false
+            kubelet: false
+            kubeControllerManager: false
+            kubeProxy: false
         prometheus:
           prometheusSpec:
+            serviceMonitorSelectorNilUsesHelmValues: false
+            podMonitorSelectorNilUsesHelmValues: false
+            ruleSelectorNilUsesHelmValues: false
             additionalScrapeConfigs:
               - job_name: 'kubernetes-pods'
                 kubernetes_sd_configs:
