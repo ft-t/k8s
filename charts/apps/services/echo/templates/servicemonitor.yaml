@@ -8,8 +8,8 @@ metadata:
 {{ include "echo.labels" . | indent 4 }}
 spec:
   endpoints:
-    - interval: 30s
-      port: http
+    - interval: 10s
+      port: metrics
       scheme: http
       path: /metrics
   jobLabel: {{ .Release.Namespace }}
