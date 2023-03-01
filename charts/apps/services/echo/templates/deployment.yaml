@@ -41,13 +41,13 @@ spec:
           livenessProbe:
             httpGet:
               path: /health
-              port: {{.Values.service.containerPort}}
+              port: {{.Values.serviceMonitoring.port}}
             initialDelaySeconds: 15
             periodSeconds: 5
           readinessProbe:
             httpGet:
               path: /ready
-              port: {{.Values.service.containerPort}}
+              port: {{.Values.serviceMonitoring.port}}
             initialDelaySeconds: 15
             periodSeconds: 5
           resources:
