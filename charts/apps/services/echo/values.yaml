@@ -24,6 +24,11 @@ affinity: { }
 podSecurityContext: {}
 securityContext: {}
 
+serviceAccount:
+  create: true
+  annotations: {}
+  name: ""
+
 resources:
   limits:
     cpu: 1000m
