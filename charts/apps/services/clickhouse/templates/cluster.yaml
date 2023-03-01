@@ -6,6 +6,7 @@ spec:
   defaults:
     templates:
       dataVolumeClaimTemplate: data-volume-template
+      podTemplate: pod-template
   configuration:
     zookeeper:
       nodes:
@@ -16,10 +17,15 @@ spec:
           shardsCount: {{.Values.shardsCount}}
           replicasCount: {{.Values.replicaCount}}
     users:
-      user2/networks/ip: "::/0"
-      user2/password: qwerty
-      user2/profile: default
+      root/networks/ip: "::/0"
+      root/password: EXRpjn9Sa6b95WGXhaR
+      root/profile: default
   templates:
+    podTemplates:
+      - name: pod-template
+        spec:
+          nodeSelector:
+            purpose: analytics
     volumeClaimTemplates:
       - name: data-volume-template
         spec:

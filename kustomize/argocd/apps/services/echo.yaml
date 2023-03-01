@@ -2,19 +2,20 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: clickhouse
+  name: echo
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
-    - finalizer.clickhouseinstallation.altinity.com
 spec:
   destination:
-    namespace: clickhouse
+    namespace: default
     name: in-cluster
   project: default
   source:
-    path: "charts/apps/services/clickhouse"
+    path: "charts/apps/services/echo"
     repoURL: https://github.com/ft-t/k8s
+    helm:
+      releaseName: echo
   syncPolicy:
     syncOptions:
       - CreateNamespace=true

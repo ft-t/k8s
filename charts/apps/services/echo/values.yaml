@@ -1,0 +1,33 @@
+service:
+  type: ClusterIP
+  port: 80
+  containerPort: 8000
+
+image:
+  repository: skydev/echo-metrics
+  pullPolicy: Always
+  tag: "latest"
+
+serviceMonitoring:
+  enabled: true
+  port: 8721
+
+imagePullSecrets: []
+
+namespace: default
+replicaCount: 2
+
+podAnnotations: {}
+nodeSelector: { }
+tolerations: [ ]
+affinity: { }
+podSecurityContext: {}
+securityContext: {}
+
+resources:
+  limits:
+    cpu: 1000m
+    memory: 1Gi
+  requests:
+    cpu: 200m
+    memory: 256Mi
