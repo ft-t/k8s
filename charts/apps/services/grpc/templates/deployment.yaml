@@ -33,7 +33,7 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
             - name: COUNT_ITEMS
-              value: {{.Values.itemsCount}}
+              value: "{{.Values.itemsCount}}"
           ports:
             - name: http
               containerPort: {{.Values.service.containerPort}}
