@@ -11,6 +11,6 @@ spec:
       targetPort: http
       protocol: TCP
       name: http
-      nodePort: {{.Values.service.containerPort}}
+      nodePort: 32467
   selector:
     {{- include "grpc.selectorLabels" . | nindent 4 }}
