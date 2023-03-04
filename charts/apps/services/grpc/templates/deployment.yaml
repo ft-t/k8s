@@ -1,14 +1,14 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "echo.fullname" . }}
+  name: {{ include "grpc.fullname" . }}
   labels:
-    {{- include "echo.labels" . | nindent 4 }}
+    {{- include "grpc.labels" . | nindent 4 }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      {{- include "echo.selectorLabels" . | nindent 6 }}
+      {{- include "grpc.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       annotations:
@@ -16,13 +16,13 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
-        {{- include "echo.selectorLabels" . | nindent 8 }}
+        {{- include "grpc.selectorLabels" . | nindent 8 }}
     spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      serviceAccountName: {{ include "echo.serviceAccountName" . }}
+      serviceAccountName: {{ include "grpc.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:

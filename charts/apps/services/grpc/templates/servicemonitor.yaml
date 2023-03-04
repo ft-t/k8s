@@ -3,9 +3,9 @@
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
-  name: {{ include "echo.name" . }}
+  name: {{ include "grpc.name" . }}
   labels:
-{{ include "echo.labels" . | indent 4 }}
+{{ include "grpc.labels" . | indent 4 }}
 spec:
   endpoints:
     - interval: 10s
@@ -15,7 +15,7 @@ spec:
   jobLabel: {{ .Release.Namespace }}
   selector:
     matchLabels:
-      app.kubernetes.io/name: {{ include "echo.name" . }}
+      app.kubernetes.io/name: {{ include "grpc.name" . }}
   namespaceSelector:
     matchNames:
       - {{ .Release.Namespace }}
