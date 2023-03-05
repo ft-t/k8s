@@ -1,29 +1,24 @@
 ---
-apiVersion: redis.redis.opstreelabs.in/v1beta1
-kind: Redis
+apiVersion: argoproj.io/v1alpha1
+kind: Application
 metadata:
-  name: redis-standalone
-#  annotations:
-#    redis.opstreelabs.in/skip-reconcile: "true"
+  name: redis
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
 spec:
-  kubernetesConfig:
-    image: quay.io/opstree/redis:v7.0.5
-    imagePullPolicy: IfNotPresent
-  storage:
-    volumeClaimTemplate:
-      spec:
-        # storageClassName: standard
-        accessModes: ["ReadWriteOnce"]
-        resources:
-          requests:
-            storage: 1Gi
-  redisExporter:
-    enabled: true
-    image: quay.io/opstree/redis-exporter:v1.44.0
-    imagePullPolicy: Always
-    # env:
-    # - name: REDIS_EXPORTER_INCL_SYSTEM_METRICS
-    #   value: "true"
-  securityContext:
-    runAsUser: 1000
-    fsGroup: 1000
+  destination:
+    namespace: redis
+    name: in-cluster
+  project: default
+  source:
+    path: "charts/apps/services/redis"
+    repoURL: https://github.com/ft-t/k8s
+    helm:
+      releaseName: redis
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+    automated:
+      prune: true
+      selfHeal: true
