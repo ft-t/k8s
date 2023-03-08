@@ -19,6 +19,14 @@ spec:
       values: |
         redisExporter:
           enabled: true
+        storageSpec:
+          volumeClaimTemplate:
+            spec:
+              storageClassName: standard
+              accessModes: ["ReadWriteOnce"]
+              resources:
+                requests:
+                  storage: 1Gi
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
