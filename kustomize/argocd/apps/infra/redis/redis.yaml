@@ -12,10 +12,13 @@ spec:
     name: in-cluster
   project: default
   source:
-    path: "charts/apps/services/redis"
-    repoURL: https://github.com/ft-t/k8s
+    chart: redis
+    repoURL: https://charts.bitnami.com/bitnami
+    targetRevision: 17.8.3
     helm:
-      releaseName: redis
+      values: |
+        metrics:
+          enabled: true
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
