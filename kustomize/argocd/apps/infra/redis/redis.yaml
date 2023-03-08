@@ -22,7 +22,7 @@ spec:
         storageSpec:
           volumeClaimTemplate:
             spec:
-              storageClassName: standard
+              storageClassName: local-storage-nvme
               accessModes: ["ReadWriteOnce"]
               resources:
                 requests:
