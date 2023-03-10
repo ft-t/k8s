@@ -83,10 +83,9 @@ spec:
                   - source_labels: [__meta_kubernetes_pod_name]
                     action: replace
                     target_label: kubernetes_pod_name
-              - job_name: 'redis-job'
+              - job_name: 'redis_exporter'
                 static_configs:
-                  targets: 
-                    - 'redis:9121'
+                  - targets: ['redis:9121']
             storageSpec:
               volumeClaimTemplate:
                 spec:
