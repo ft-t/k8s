@@ -17,6 +17,8 @@ spec:
     targetRevision: 0.14.2
     helm:
       values: |
+        serviceMonitor:
+          enabled: true
         redisExporter:
           enabled: true
           env:
