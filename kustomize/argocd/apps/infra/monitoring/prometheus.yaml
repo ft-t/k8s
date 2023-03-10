@@ -86,7 +86,7 @@ spec:
               - job_name: 'redis-job'
                 static_configs:
                   targets: 
-                    - "http://redis:6379"
+                    - 'redis:9121'
             storageSpec:
               volumeClaimTemplate:
                 spec:
