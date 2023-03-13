@@ -2,13 +2,13 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: redis
+  name: redisdb
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
-    namespace: redis
+    namespace: redisdb
     name: in-cluster
   project: default
   source:
@@ -19,12 +19,14 @@ spec:
       values: |
         serviceMonitor:
           enabled: true
-          namespace: redis
+          namespace: redisdb
         redisExporter:
           enabled: true
           env:
             - name: REDIS_EXPORTER_INCL_SYSTEM_METRICS
               value: "true"
+            - name: REDIS_ADDR
+              value: "redis://redisdb:6379"
         storageSpec:
           volumeClaimTemplate:
             spec:
