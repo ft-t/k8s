@@ -1,0 +1,43 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: redisdb
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: redisdb
+    name: in-cluster
+  project: default
+  source:
+    chart: redis
+    repoURL: https://ot-container-kit.github.io/helm-charts/
+    targetRevision: 0.14.2
+    helm:
+      values: |
+        serviceMonitor:
+          enabled: true
+          namespace: redisdb
+        redisExporter:
+          enabled: true
+          env:
+            - name: REDIS_EXPORTER_INCL_SYSTEM_METRICS
+              value: "true"
+            - name: REDIS_ADDR
+              value: "redis://redisdb:6379"
+        storageSpec:
+          volumeClaimTemplate:
+            spec:
+              storageClassName: local-storage-nvme
+              accessModes: ["ReadWriteOnce"]
+              resources:
+                requests:
+                  storage: 1Gi
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+    automated:
+      prune: true
+      selfHeal: true

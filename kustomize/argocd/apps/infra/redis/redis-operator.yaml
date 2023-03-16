@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: redis-operator
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: redis-operator
+    name: in-cluster
+  project: default
+  source:
+    chart: redis-operator
+    repoURL: https://ot-container-kit.github.io/helm-charts/
+    targetRevision: 0.14.0
+    helm:
+      values: |
+        replicas: 2
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+      - ServerSideApply=true
+    automated:
+      prune: true
+      selfHeal: true
