@@ -1,14 +1,14 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "echo.fullname" . }}
+  name: {{ include "vcs.fullname" . }}
   labels:
-    {{- include "echo.labels" . | nindent 4 }}
+    {{- include "vcs.labels" . | nindent 4 }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      {{- include "echo.selectorLabels" . | nindent 6 }}
+      {{- include "vcs.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       annotations:
@@ -16,13 +16,13 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
-        {{- include "echo.selectorLabels" . | nindent 8 }}
+        {{- include "vcs.selectorLabels" . | nindent 8 }}
     spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      serviceAccountName: {{ include "echo.serviceAccountName" . }}
+      serviceAccountName: {{ include "vcs.serviceAccountName" . }}
       terminationGracePeriodSeconds: 40s
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
@@ -32,26 +32,13 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          env:
+            - name: API_ADDRESS
+              value: "0.0.0.0:{{.Values.service.containerPort}}"
           ports:
             - name: http
               containerPort: {{.Values.service.containerPort}}
               protocol: TCP
-            - name: metrics
-              containerPort: {{.Values.serviceMonitoring.port}}
-              protocol: TCP
-          livenessProbe:
-            httpGet:
-              path: /health
-              port: {{.Values.serviceMonitoring.port}}
-            initialDelaySeconds: 5
-            periodSeconds: 5
-          readinessProbe:
-            httpGet:
-              path: /ready
-              port: {{.Values.serviceMonitoring.port}}
-            initialDelaySeconds: 5
-            failureThreshold: 1
-            periodSeconds: 3
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}

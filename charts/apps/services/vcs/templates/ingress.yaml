@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ include "vcs.fullname" . }}
+spec:
+  rules:
+    - host: "vcs.qqw.ovh"
+      http:
+        paths:
+          - pathType: Prefix
+            path: "/"
+            backend:
+              service:
+                name: {{ include "vcs.fullname" . }}
+                port:
+                  number: {{.Values.service.port}}

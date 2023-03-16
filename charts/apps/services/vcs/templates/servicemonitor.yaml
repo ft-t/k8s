@@ -1,0 +1,22 @@
+{{- if .Values.serviceMonitoring.enabled -}}
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: {{ include "vcs.name" . }}
+  labels:
+{{ include "vcs.labels" . | indent 4 }}
+spec:
+  endpoints:
+    - interval: 10s
+      port: metrics
+      scheme: http
+      path: /metrics
+  jobLabel: {{ .Release.Namespace }}
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: {{ include "vcs.name" . }}
+  namespaceSelector:
+    matchNames:
+      - {{ .Release.Namespace }}
+{{- end }}
