@@ -23,7 +23,6 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       serviceAccountName: {{ include "vcs.serviceAccountName" . }}
-      terminationGracePeriodSeconds: 40s
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
